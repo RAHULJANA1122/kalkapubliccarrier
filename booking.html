@@ -1,0 +1,113 @@
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>KALKA PUBLIC CARRIER BOOKING</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+  <!-- contact1 -->
+  <section class="w3l-simple-contact-form1">
+    <div class="contact-form section-gap">
+      <div class="wrapper">
+        <div class="text-center">
+        <h1 style="font-size: 40px; " >BOOK NOW</h1>
+      </div>
+        <div class="contact-form" style="max-width: 450px; margin: 0 auto;">
+          <div class="form-mid">
+            <form action="javascript:sendmail()" method="post">
+              <div class="field">
+                <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" required="">
+              </div>
+              <div class="field">
+                <input type="email" class="form-control" name="Sender" id="Sender" placeholder="Email" required="">
+              </div>
+              <div class="field">
+                <input type="number" class="form-control" name="Subject" id="Subject" placeholder="Contact No" required="">   
+              </div>
+              <div class="field">
+                <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Location EX: Faridabad To Okhla"
+                required="">
+              </div>
+              <textarea name="Message" class="form-control" id="Message" placeholder="Message"
+                required=""></textarea>
+              <!--<button type="submit" class="btn btn-contact">SUBMIT</button>-->
+              <input type="button" class="btn btn-contact" onclick="sendmail();"  value="Send Message"> 
+              <footer>
+                <div class="left-footer">
+                    <h1><span style="font-size: 17px;">&copy;2022</span> KALKA PUBLIC CARRIER</h1>
+                </div>
+                <div class="right-footer">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rahulxjana" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </footer>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /contact1 -->
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>  
+
+     function sendmail(){
+
+			var name = $('#Name').val();
+			var email = $('#Sender').val();
+			var subject = $('#Subject').val();
+      var message = $('#Message').val();
+      var location = $('#Subject').val();
+
+			// var body = $('#body').val();
+
+			var Body='Name: '+name+'<br>Email: '+email+'<br>Subject: '+subject+'<br>Message: '+message;
+			//console.log(name, phone, email, message);
+
+			Email.send({
+    Host : "smtp.gmail.com",
+    Username : "janarahul123450@gmail.com",
+    Password : "Sumita@44",
+    To : 'kalkacomm@gmail.com',
+    From : "janarahul123450@gmail.com",
+    Subject : "New Mail On Contact Form From"+name,
+    Body : Body
+
+			}).then(
+				message=>{
+					//console.log (message);
+					if(message=='OK'){
+					alert('Your mail has been send. Thanks For Choosing KALKA PUBLIC CARRIER.');
+        }
+					else{
+						//console.error(message);
+						alert('There is error at sending message. if any problem you are facing please contact in +91 9654505037 ')
+
+					}
+
+				}
+			);
+
+
+
+		}
+
+
+    </script>
+ 
+
+</body>
+</html> 
